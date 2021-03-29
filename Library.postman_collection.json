@@ -1,0 +1,358 @@
+{
+	"info": {
+		"_postman_id": "234a834c-5470-4815-ad04-d00dcf5f100c",
+		"name": "Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "sjadhksada",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"nazrinibrahimli@gmail.com\",\n    \"password\": \"secret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "0.0.0.0:8080/auth/login",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"fuad.aghazada98@gmail.com\",\n    \"password\": \"secret\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "0.0.0.0:8080/auth/register",
+							"host": [
+								"0",
+								"0",
+								"0",
+								"0"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Library",
+			"item": [
+				{
+					"name": "Public",
+					"item": [
+						{
+							"name": "List books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "0.0.0.0:8080/library/public/books?author=Ray Bradbury",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"public",
+										"books"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Ray Bradbury"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List book categories",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "[B@ba183eb",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "0.0.0.0:8080/library/public/categories",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"public",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search books",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "0.0.0.0:8080/library/public/searchBooks?author=Ray Bradbury&name=Fahrenheit 451&categoryId=1&searchType=AND",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"public",
+										"searchBooks"
+									],
+									"query": [
+										{
+											"key": "author",
+											"value": "Ray Bradbury"
+										},
+										{
+											"key": "name",
+											"value": "Fahrenheit 451"
+										},
+										{
+											"key": "categoryId",
+											"value": "1"
+										},
+										{
+											"key": "searchType",
+											"value": "AND"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Private",
+					"item": [
+						{
+							"name": "Pickup book",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "[B@2b247cb5",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "0.0.0.0:8080/library/private/pickup/",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"private",
+										"pickup",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Drop off book",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "[B@4bcd3982",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "0.0.0.0:8080/library/private/dropoff/",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"private",
+										"dropoff",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List currently pickups",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "[B@4bcd3982",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "0.0.0.0:8080/library/private/currentPickups/",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"private",
+										"currentPickups",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List history",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "[B@4bcd3982",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookId\": 1\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "0.0.0.0:8080/library/private/history/",
+									"host": [
+										"0",
+										"0",
+										"0",
+										"0"
+									],
+									"port": "8080",
+									"path": [
+										"library",
+										"private",
+										"history",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
